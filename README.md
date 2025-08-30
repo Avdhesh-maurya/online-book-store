@@ -19,7 +19,7 @@ This is a Django-based web application for managing books, categories, users, an
 ## Setup Instructions
 1. Clone the repository:
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/Avdhesh-maurya/online-book-store.git
    ```
 2. Install dependencies:
    ```sh
