@@ -1,0 +1,64 @@
+{% extends 'userbase1.html' %}
+{% load static %}
+{% block user %}
+
+<h3 class="text-center mb-4 fw-bold">🛒 My Cart</h3>
+
+{% if items %}
+<div class="table-responsive">
+    <table class="table table-hover align-middle shadow-sm border rounded-3">
+        <thead class="table-dark">
+            <tr>
+                <th>S.No</th>
+                <th>📖 Book</th>
+                <th>✍️ Author</th>
+                <th>💰 Price</th>
+                <th>📦 Quantity</th>
+                <th>⚡ Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in items %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ b.book.title }}</td>
+                <td>{{ b.book.author }}</td>
+                <td>₹ {{ b.book.price }}</td>
+                <td>{{ b.quantity }}</td>
+                <td>
+                    <a href="{% url 'removeitems' id=b.id %}" class="btn btn-sm btn-danger">
+                        ❌ Remove
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot class="table-light">
+            <tr>
+                <td colspan="4" class="text-end fw-bold">
+                    Total Amount:
+                </td>
+                <td colspan="2" class="fw-bold text-success">
+                    ₹ {{ totalamount }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6" class="text-end">
+                    <a href="{% url 'checkout' %}" class="btn btn-success btn-lg">
+                        💳 Proceed to Payment
+                    </a>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% else %}
+<div class="text-center mt-5">
+    <p class="text-muted">🛍️ Your cart is empty.</p>
+    <a href="{% url 'index' %}" class="btn btn-primary">
+        Continue Shopping →
+    </a>
+</div>
+{% endif %}
+
+{% endblock %}

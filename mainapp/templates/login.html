@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+
+      <!-- Login Card -->
+      <div class="card shadow-lg border-0 rounded-4 p-4">
+        <div class="text-center mb-4">
+          <h3 class="fw-bold text-primary">Welcome Back</h3>
+          <p class="text-muted">Login to continue</p>
+        </div>
+
+        <!-- Login Form -->
+        <form method="POST">
+          {% csrf_token %}
+
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="username" class="form-label fw-bold">Username or Email</label>
+            <input type="text" class="form-control form-control-small rounded-3" id="username" name="username"
+              placeholder="Enter your username or email" required>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <input type="password" class="form-control form-control rounded-3" id="password" name="password"
+              placeholder="Enter your password" required>
+          </div>
+
+          <!-- Submit -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg rounded-3 fw-bold">
+              Login
+            </button>
+          </div>
+        </form>
+
+        <!-- Links -->
+        <div class="text-center mt-3">
+          <a href="#" class="text-decoration-none text-danger fw-bold">Forgot Password?</a>
+        </div>
+
+        <div class="text-center mt-3">
+          <p class="text-muted mb-0">Don't have an account?
+            <a href="{% url 'register' %}" class="fw-bold text-primary">Register</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'adminbase1.html' %}
+{% load static %}
+{% block admin %}
+<div class="container">
+    <h3 class="text-center text-primary mb-4">View Books</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card shadow-lg rounded-3 p-4">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Original Price</th>
+                                <th>Price</th>
+                                <th>Publish Date</th>
+                                <th>Language</th>
+                                <th>Cover Image</th>
+                                <th>Stock</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in book %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ e.title }}</td>
+                                <td>{{ e.author }}</td>
+                                <td>{{ e.category.name }}</td>
+                                <td>{{ e.description|truncatewords:15 }}</td>
+                                <td>&#8377;{{ e.original_price }}</td>
+                                <td>&#8377;{{ e.price }}</td>
+                                <td>{{ e.publish_date }}</td>
+                                <td>{{ e.language }}</td>
+                                <td>
+                                    {% if e.cover_image %}
+                                    <img src="{{ e.cover_image.url }}" alt="Cover Image" height="80px"
+                                        class="img-thumbnail">
+                                    {% else %}
+                                    No Image
+                                    {% endif %}
+                                </td>
+                                <td>{{ e.stock }}</td>
+                                <td>{{ e.created_at }}</td>
+                                <td>{{ e.updated_at }}</td>
+                                <td>
+                                    <a href="{% url 'delbook' id=e.id %}"
+                                        class="btn btn-danger btn-sm mb-1 animated-button">Delete</a>
+                                    <a href="{% url 'editbook' id=e.id %}"
+                                        class="btn btn-warning btn-sm animated-button">Edit</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

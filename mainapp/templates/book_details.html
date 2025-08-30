@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow-lg border-0 rounded-4 p-4">
+    <div class="row g-4 align-items-center">
+      <!-- Book Image -->
+      <div class="col-md-5 text-center">
+        {% if book.cover_image %}
+        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" class="img-fluid rounded-4 shadow-sm"
+          style="max-height: 400px; object-fit: cover;">
+        {% else %}
+        <img src="{% static 'img/default.jpg' %}" alt="No Image" class="img-fluid rounded-4 shadow-sm"
+          style="max-height: 400px; object-fit: cover;">
+        {% endif %}
+      </div>
+
+      <!-- Book Details -->
+      <div class="col-md-7">
+        <h2 class="fw-bold mb-3">{{ book.title }}</h2>
+        <p class="mb-2"><strong>Author:</strong> {{ book.author }}</p>
+        <p class="mb-2"><strong>Category:</strong> {{ book.category.name }}</p>
+        <p class="mb-2"><strong>Publish Date:</strong> {{ book.publish_date }}</p>
+        <p class="mb-2"><strong>Language:</strong> {{ book.language }}</p>
+        <p class="mb-3"><strong>Description:</strong> {{ book.description }}</p>
+
+        <!-- Price -->
+        <h4 class="mb-4">
+          <span class="text-danger text-decoration-line-through">₹399</span>
+          <span class="text-success fw-bold ms-2">₹299</span>
+        </h4>
+
+        <!-- Add to Cart -->
+        <form action="{% url 'addtocart' id=book.id %}" method="post" class="d-flex align-items-center gap-3">
+          {% csrf_token %}
+          <label for="qty" class="fw-semibold">Quantity:</label>
+          <input type="number" name="quantity" id="qty" value="1" min="1" class="form-control w-auto text-center"
+            onchange="check()">
+          <button type="submit" class="btn btn-success px-4" id="cart">
+            <i class="fa fa-shopping-cart me-2"></i> Add to Cart
+          </button>
+        </form>
+        <span class="text-danger mt-2 d-block" id="msg"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function check() {
+    let qty = parseInt(document.getElementById("qty").value);
+    let stock = parseInt("{{book.stock}}");
+    let msg = document.getElementById("msg");
+    let cartBtn = document.getElementById("cart");
+
+    if (qty > stock) {
+      msg.innerHTML = `Quantity exceeds stock. Only ${stock} left.`;
+      cartBtn.classList.add("disabled");
+    } else {
+      msg.innerHTML = "";
+      cartBtn.classList.remove("disabled");
+    }
+  }
+</script>
+{% endblock %}

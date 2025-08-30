@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f6fa;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #d50ddcd8;
+      color: #fff;
+      padding-top: 20px;
+    }
+
+    .sidebar .nav-link {
+      color: #ddd;
+      font-weight: 500;
+      padding: 12px 20px;
+      border-radius: 6px;
+      margin: 4px 10px;
+    }
+
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
+      background: #a3399fc3;
+      color: #fff;
+    }
+
+    .sidebar .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 30px;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 30px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .topbar {
+      background: #fff;
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar d-flex flex-column">
+    <div class="logo">📚 Dashboard</div>
+    <nav class="nav flex-column">
+      <a href="{% url 'index' %}" class="nav-link active"><i class="fa fa-home me-2"></i> Home</a>
+      <a href="{% url 'about' %}" class="nav-link"><i class="fa fa-book me-2"></i> About</a>
+      <a href="{% url 'contact' %}" class="nav-link"><i class="fa fa-shopping-cart me-2"></i> Contact</a>
+      <a href="{% url 'register' %}" class="nav-link"><i class="fa fa-users me-2"></i> Register</a>
+      <a href="{% url 'login' %}" class="nav-link"><i class="fa fa-chart-bar me-2"></i> Login</a>
+
+      <a href="{% url 'adminlogin' %}" class="nav-link"><i class="fa fa-sign-out-alt me-2"></i> Logout</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Top Bar -->
+    <div class="topbar d-flex justify-content-between align-items-center">
+      <h4 class="m-0">Welcome Back, Admin</h4>
+      <div>
+        <i class="fa fa-bell me-3"></i>
+        <i class="fa fa-user-circle"></i>
+      </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="row g-4">
+      <div class="col-sm-3 col-md-3">
+        <div class="card p-3">
+          <h6>Total Books</h6>
+          <h3>1,245</h3>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="card p-3">
+          <h6>Total Orders</h6>
+          <h3>530</h3>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="card p-3">
+          <h6>Revenue</h6>
+          <h3>₹75,300</h3>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <div class="card p-3">
+          <h6>Customers</h6>
+          <h3>890</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="card mt-4 p-3">
+      <h5>Recent Orders</h5>
+      <table class="table table-hover mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Book</th>
+            <th>Status</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>John Doe</td>
+            <td>Psychology of Money</td>
+            <td><span class="badge bg-success">Completed</span></td>
+            <td>₹499</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Jane Smith</td>
+            <td>Rich Dad Poor Dad</td>
+            <td><span class="badge bg-warning">Pending</span></td>
+            <td>₹399</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>David Lee</td>
+            <td>Ikigai</td>
+            <td><span class="badge bg-danger">Cancelled</span></td>
+            <td>₹299</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>

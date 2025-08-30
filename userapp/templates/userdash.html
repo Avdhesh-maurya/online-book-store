@@ -1,0 +1,36 @@
+{% extends 'userbase1.html' %}
+{% load static %}
+{% block user %}
+
+<h3 class="mb-4 text-center fw-bold">User Dashboard</h3>
+
+<div class="row g-4 justify-content-center">
+    <!-- Total Orders -->
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 text-center p-4"
+            style="background: linear-gradient(135deg, #e91e63, #9c27b0); color: #fff;">
+            <h5 class="fw-semibold">Total Orders</h5>
+            <p class="display-6 fw-bold mt-2">{{ orders }}</p>
+        </div>
+    </div>
+
+    <!-- Pending -->
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 text-center p-4"
+            style="background: linear-gradient(135deg, #ff9800, #f44336); color: #fff;">
+            <h5 class="fw-semibold">Pending</h5>
+            <p class="display-6 fw-bold mt-2">{{ cartitem }}</p>
+        </div>
+    </div>
+
+    <!-- Total Invested -->
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 text-center p-4"
+            style="background: linear-gradient(135deg, #4caf50, #009688); color: #fff;">
+            <h5 class="fw-semibold">Total Invested</h5>
+            <p class="display-6 fw-bold mt-2">&#8377; {{ totalamount }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

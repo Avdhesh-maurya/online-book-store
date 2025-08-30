@@ -1,0 +1,45 @@
+{% extends 'userbase1.html' %}
+{% load static %}
+{% block user %}
+
+<h3 class="text-center mb-4 fw-bold">👤 User Profile</h3>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4 mx-auto">
+        <div class="card shadow-lg border-0 rounded-3">
+            <div class="card-body text-center p-4">
+
+                <!-- Profile Picture -->
+                <div class="mb-3">
+                    {% if user.profile %}
+                    <img src="{{user.profile.url}}" class="rounded-circle shadow-sm" alt="Profile Picture" height="150"
+                        width="150" style="object-fit: cover;">
+                    {% else %}
+                    <img src="https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+                        class="rounded-circle shadow-sm" alt="Default Profile" height="150" width="150"
+                        style="object-fit: cover;">
+                    {% endif %}
+                </div>
+
+                <!-- User Info -->
+                <h5 class="fw-bold text-primary">{{ user.name }}</h5>
+                <hr>
+
+                <p class="text-start">
+                    <b>Email:</b> {{ user.email }} <br>
+                    <b>Phone:</b> {{ user.phone }} <br>
+                    <b>Address:</b> {{ user.address }}
+                </p>
+
+                <hr>
+
+                <!-- Edit Button -->
+                <a href="{% url 'editprofile' %}" class="btn btn-darkpink w-100 mt-2">
+                    ✏️ Edit Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

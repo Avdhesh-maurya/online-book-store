@@ -1,0 +1,44 @@
+{% extends 'userbase1.html' %}
+{% load static %}
+{% block user %}
+
+<h2 class="mb-4 fw-bold text-center">📦 Your Orders</h2>
+
+{% for order in orderitems %}
+<div class="card shadow-sm mb-4 border-0 rounded-3">
+    <!-- Order Header -->
+    <div class="card-header bg-gradient text-white d-flex justify-content-between align-items-center"
+        style="background: linear-gradient(135deg, #9c27b0, #e91e63);">
+        <span><strong>Order ID:</strong> #{{ order.first.order.id }}</span>
+        <span><strong>Ordered At:</strong> {{ order.first.order.ordered_at }}</span>
+    </div>
+
+    <!-- Order Table -->
+    <div class="card-body p-0">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">📖 Book</th>
+                    <th scope="col">📦 Quantity</th>
+                    <th scope="col">💰 Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for o in order %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ o.book.title }}</td>
+                    <td>{{ o.quantity }}</td>
+                    <td>₹ {{ o.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% empty %}
+<p class="text-center text-muted mt-5">🙁 You haven't ordered any book yet</p>
+{% endfor %}
+
+{% endblock %}

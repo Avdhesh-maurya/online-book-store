@@ -1,0 +1,62 @@
+{% extends 'userbase1.html' %}
+{% load static %}
+{% block user %}
+
+<div class="container py-4">
+    <h3 class="text-center mb-4">✏️ Edit Profile</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-bold">Name</label>
+                            <input type="text" value="{{ user.name }}" class="form-control" name="name" id="name"
+                                required>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label for="ph" class="form-label fw-bold">Phone</label>
+                            <input type="text" value="{{ user.phone }}" class="form-control" name="phone" id="ph">
+                        </div>
+
+                        <!-- Profile Picture -->
+                        <div class="mb-3">
+                            <label for="pf" class="form-label fw-bold">Profile Picture</label>
+                            <input type="file" class="form-control" name="pic" id="pf">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">Email</label>
+                            <input type="email" value="{{ user.email }}" class="form-control" name="email" id="email"
+                                required>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="mb-3">
+                            <label for="add" class="form-label fw-bold">Address</label>
+                            <textarea class="form-control" name="address" id="add"
+                                rows="3">{{ user.address }}</textarea>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary px-4 py-2 rounded-3">
+                                💾 Save Changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

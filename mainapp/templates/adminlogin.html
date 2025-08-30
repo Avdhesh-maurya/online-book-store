@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row" style="background-color: rgb(0, 186, 124); height: 100vh;">
+            <div class="col-sm-4 mx-auto my-auto">
+                <div class="card p-4">
+                    <h4 class="text-center mb-4">Welcome Admin!</h4>
+                    {% if messages %}
+                    {% for m in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ m }}
+
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+
+                    <form action="{% url 'adminlog' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" name="username" class="form-control" id="floatingInput"
+                                placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" name="password" class="form-control" id="floatingPassword"
+                                placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="text-center mt-5">
+                            <button class="btn btn-dark w-100 mb-2" type="submit">Login</button>
+                        </div>
+                    </form>
+                    <p>&copy; 2025 <a href="{% url 'index' %}" class="float-end ">Back to home</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+
+</html>

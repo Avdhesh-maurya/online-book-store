@@ -1,0 +1,186 @@
+
+*{
+    padding:0px;
+    margin:0px;
+    
+}
+
+
+.nav1{
+    height:15vh;
+    padding: 0px;
+    margin-left: -15px; 
+    margin-right: -15px;
+}
+.nav2{
+    top:0;
+    background-color: rgba(192, 22, 175, 0.8);
+    color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    margin: -12px;
+    
+    position: sticky;
+    justify-content: space-around;
+    padding-left: 40vw;
+    
+}
+
+.btn-purplee{
+        
+        border-radius: 1px solid rgba(137, 43, 226, 0);
+        margin:10px;
+        margin-top: 0px;
+}
+
+.btn-purplee:hover{
+    background-color: rgba(192, 22, 175, 0.8);
+}
+.log{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.logincontainer{
+    width:120vh;
+    padding:1rem;
+    background-color:rgba(239, 235, 235, 0.93) ;
+    background: transparent;
+    border-radius: 20px;
+    margin-top: 10vh;
+    box-shadow: 5px 5px 10px 5px rgb(175, 169, 176);
+}
+.loginbut{
+  height:8vh;
+  width:23vh;
+  border-radius: 10px;
+}
+.loginbut:hover{
+  background-color: rgba(177, 34, 153, 0.762);
+  
+}
+
+/* Register*/
+
+    .register-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .register-btn {
+      background-color:  rgba(177, 34, 153, 0.762);
+      color: #fff;
+    }
+    .register-btn:hover {
+      background-color:  rgba(177, 34, 153, 0.762);
+      color: #fff;
+    }
+    .form-check-label a {
+      text-decoration: none;
+    }
+    .info-section i {
+      color:  rgba(177, 34, 153, 0.762);
+      margin-right: 8px;
+    }
+/*Register*/
+/*Contact Css*/
+.contact-section {
+      margin: 40px 0;
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .contact-card {
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 20px;
+      background: #fff;
+    }
+    .btn-custom {
+      background-color: rgba(177, 34, 153, 0.762);
+      color: #fff;
+      font-weight: bold;
+    }
+    .info-box {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .info-box i {
+      color: rgba(177, 34, 153, 0.762);
+      margin-right: 10px;
+    }
+    /*Contact Css-->*/
+    /*About Section*/
+     body {
+      font-family: Arial, sans-serif;
+    }
+    .about-section {
+      padding: 10px 0;
+      width:100%;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .team-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px auto 10px;
+    }
+    .team-card {
+      transition: transform 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    /*About Section*/
+    /* index section */
+    .btn-darkpink {
+  background-color:rgba(177, 34, 153, 0.762);
+  color: white;
+}
+.btn-darkpink:hover {
+  background-color: #ad1457; /* slightly darker on hover */
+  color: white;
+}
+
+    .hero {
+      
+      height: 80vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .category-card {
+      transition: transform 0.3s;
+    }
+    .category-card:hover {
+      transform: scale(1.05);
+    }
+    .icon-box i {
+      font-size: 40px;
+      color: #6f42c1;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #f8f9fa;
+      padding: 20px 0;
+    }
+    /* index section */
+    

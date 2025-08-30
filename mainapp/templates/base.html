@@ -1,0 +1,266 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Books Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <!-- icon -->
+  <link rel="icon" href="../static/img/book.webp">
+
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+
+    footer {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container-fluid g-3">
+    <div class="row g-0 pt-3">
+      <div class="col-12">
+        <!-- Top Header Navbar -->
+        <nav class="navbar bg-white border-bottom">
+          <div class="container-fluid align-items-center">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+              <i class="fas fa-book fs-4 ms-5 me-2 "></i>
+              <h4 class="mb-0">Book Point</h4>
+            </a>
+            <!-- Search Form -->
+            <form class="mx-auto w-50 d-none d-md-flex" role="search">
+              <div class="input-group">
+                <input class="form-control rounded-start border-end-0" type="search" placeholder="Search here..."
+                  aria-label="Search">
+                <span class="input-group-text bg-dark text-light rounded-end" style="margin-bottom: 15px;">
+                  <i class="fas fa-search"></i>
+                </span>
+              </div>
+            </form>
+            <!-- Icons -->
+            <div class="d-flex align-items-center me-5">
+              <a href="#" class="text-dark me-3 fs-4"><i class="fas fa-heart"></i></a>
+              <a href="{% url 'viewcart' %}" class="text-dark me-3 fs-4"><i class="fas fa-shopping-cart"></i></a>
+              <a href="{% url 'login' %}" class="text-dark fs-4"><i class="fas fa-user"></i></a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Green Navigation Bar -->
+        <nav class="navbar navbar-expand-lg g-0 rounded-3" style="background-color:	#111822e6">
+          <div class="container-fluid">
+            <button class="navbar-toggler bg-white text-white" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul class="navbar-nav mb-0 gap-5">
+                <li class="nav-item">
+                  <a class="nav-link text-white fw-semibold px-3" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white fw-semibold px-3" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white fw-semibold px-3" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white fw-semibold px-3" href="{% url 'contact' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white fw-semibold px-3" href="{% url 'register' %}">Register</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  {% block content %}
+
+
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-light" style="background:#333232;">
+
+    <!-- Social Media Section -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="me-5 d-none d-lg-block">
+        <h6 class="fw-bold mb-0">Stay connected with us:</h6>
+      </div>
+      <div>
+        <!-- Email Icon -->
+        <a href="mailto:akah8887@gmail.com" class="me-4 text-reset fs-5"><i class=" fab fas fa-envelope" style="color: #bad1ff;"></i></a>
+        <a href="#" class="me-4 text-reset fs-5"><i class="fab fa-facebook" style="color: #2562dc;"></i></a>
+        <a href="#" class="me-4 text-reset fs-5"><i class="fab fa-twitter" style="color: #1DA1F2;"></i></a>
+        <a href="#" class="me-4 text-reset fs-5"><i class="fab fa-instagram" style="color: #e0198a;"></i></a>
+        <a href="https://www.linkedin.com/in/avdhesh-kumar07/" class="me-4 text-reset fs-5"><i class="fab fa-linkedin"
+            style="color: #0077B5;"></i></a>
+        <a href="https://github.com/Avdhesh-maurya" class="me-4 text-reset fs-5"><i class="fab fa-github"
+            style="color: #ffffff;"></i></a>
+      </div>
+    </section>
+    <!-- End Social Media -->
+
+    <!-- Links Section -->
+    <section class="pt-5 p-0 ">
+      <div class="container text-center text-md-start">
+        <div class="row">
+
+          <!-- Brand / About -->
+          <div class="col-12 col-md-2 col-lg-2 mb-4">
+            <h5 class="fw-bold text-uppercase mb-4">Book Point</h5>
+            <p>Your one-stop destination for books across genres. From fiction to academics, we bring stories &
+              knowledge to every reader.</p>
+          </div>
+
+          <!-- Locations -->
+          <div class="col-12 col-md-2 col-lg-2 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Locations</h6>
+            <p>Lucknow: Gomti Nagar</p>
+            <p>Lucknow: Jankipuram</p>
+            <p>Noida</p>
+          </div>
+
+          <!-- Useful Links -->
+          <div class="col-12 col-md-2 col-lg-2 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Useful Links</h6>
+            <p><a href="{% url 'adminlogin' %}" class="text-reset text-decoration-none">Admin Login</a></p>
+            <p><a href="{% url 'login' %}" class="text-reset text-decoration-none">User Login</a></p>
+            <p><a href="{% url 'register' %}" class="text-reset text-decoration-none">Register</a></p>
+            <p><a href="#!" class="text-reset text-decoration-none">Help & Support</a></p>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-12 col-md-2 col-lg-2 mb-1 ">
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-2"></i> Near Kathauta, Gomti Nagar</p>
+            <p><i class="fas fa-envelope me-2"></i> akah8887@gmail.com</p>
+            <p><i class="fas fa-phone me-2"></i> +91 9876543210</p>
+            <p><i class="fas fa-print me-2"></i> +91 8765432109</p>
+          </div>
+
+          <!-- Newsletter (aligned to the right) -->
+          <div class="col-12 col-md-4 col-lg-3 mb-4 ms-4">
+            <h6 class="text-uppercase fw-bold mb-4">Newsletter</h6>
+            <p>Subscribe to our newsletter for the latest updates:</p>
+            <form class="d-flex" role="form">
+              <input type="email" class="form-control me-2" placeholder="Enter your email">
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- End Links Section -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 mb-0" style="background-color: rgba(0,0,0,0.05);">
+      <p class="mb-0">© 2025 Book Point. All Rights Reserved.</p>
+      <small>Created by <span style="color:#a035b6; font-weight: bold;">Avdhesh Kumar</span></small>
+    </div>
+    <!-- End Copyright -->
+
+  </footer>
+  <!-- End Footer -->
+
+
+  <!-- Optional CSS for hover effects -->
+  <style>
+    footer a.text-reset:hover {
+      color: #a035b6 !important;
+      text-decoration: underline;
+    }
+
+    footer .fab:hover {
+      transform: scale(1.2);
+      transition: transform 0.3s ease;
+    }
+  </style>
+  <!-- footer end -->
+
+  <script src="{% static 'js/splide.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script>
+    var splide = new Splide('.splide', {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      autoPlay: true,
+    });
+
+    splide.mount();
+  </script>
+  <script src="{% static 'js/plugins/sweetalert2.all.min.js' %}"></script>
+  {% if messages %}
+  {% for message in messages %}
+  <script>
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+    Toast.fire({
+      icon: '{{message.tags}}',
+      title: '{{message}}'
+    });
+  </script>
+  {% endfor %}
+  {% endif %}
+  <script src="{% static 'js/plugins/apexcharts.min.js' %}"></script>
+  <script src="{% static 'js/pages/dashboard-default.js' %}"></script>
+  <!-- [Page Specific JS] end -->
+  <!-- Required Js -->
+  <script src="{% static 'js/plugins/popper.min.js' %}"></script>
+  <script src="{% static 'js/plugins/simplebar.min.js' %}"></script>
+  <script src="{% static 'fdf/js/plugins/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/fonts/custom-font.js' %}"></script>
+  <script src="{% static 'js/pcoded.js' %}"></script>
+  <script src="{% static 'js/plugins/feather.min.js' %}"></script>
+
+
+  <script>layout_change('light');</script>
+
+  <script>change_box_container('false');</script>
+
+  <script>layout_rtl_change('false');</script>
+
+  <script>preset_change("preset-1");</script>
+
+  <script>font_change("Public-Sans");</script>
+
+  <script src="{% static 'js/plugins/sweetalert2.all.min.js' %}"></script>
+</body>
+
+</html>

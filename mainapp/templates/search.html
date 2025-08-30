@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br><br>
+<h3 class="text-center text-primary fw-bold">Search Results</h3>
+
+<div class="container">
+  {% if search %}
+  <div class="row g-4 justify-content-center">
+    {% for s in search %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card p-3 shadow-lg h-100">
+        <a href="{% url 'book_details' id=s.id %}" class="text-decoration-none text-dark">
+          <div class="text-center">
+            {% if s.cover_image %}
+            <img src="{{ s.cover_image.url }}" alt="{{ s.title }}" class="img-fluid mb-3"
+              style="height: 180px; object-fit: cover;">
+            {% else %}
+            <img src="{% static 'img/default.jpg' %}" alt="No Image" class="img-fluid mb-3"
+              style="height: 180px; object-fit: cover;">
+            {% endif %}
+            <h5 class="fw-semibold">{{ s.title }}</h5>
+            <h6 class="text-success">
+              &#8377; {{ s.price }}
+              <del class="text-danger ms-2">{{ s.original_price }}</del>
+            </h6>
+          </div>
+        </a>
+        <form action="{% url 'addtocart' id=s.id %}" method="post" class="text-center mt-3">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success btn-sm px-4">Add to Cart</button>
+        </form>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <h5 class="text-center text-danger mt-4">No Search Results</h5>
+  {% endif %}
+</div>
+
+{% endblock %}

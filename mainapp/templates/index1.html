@@ -1,0 +1,53 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block userr %}
+<!-- Hero Section -->
+<div class="row hero" style="padding: 0 !important;">
+  <div class="col-sm-12 py-5" style="backdrop-filter: blur(15px);">
+    <section>
+      <h2>Dive Into Endless Stories</h2><br>
+      <p>Discover books from every genre with a smooth and modern experience.</p><br><br>
+      <form class="d-flex m-auto" role="search" style="max-width: 500px;" method="get" action="{% url 'search' %}">
+        <input class="form-control py-3" type="search" placeholder="Search" aria-label="Search" name="search"
+          value="" />
+        <button class="btn mt-0" type="submit"><i class="fa-solid fa-magnifying-glass"
+            style="color: #a320ac;"></i></button>
+      </form>
+      <br>
+      <a href="#" class="btn">Shop Now</a>
+    </section>
+  </div>
+</div>
+
+<!-- Why Choose Us -->
+<section class="py-5" style="background: linear-gradient(to right, #00487C, #027BCE, #0496FF, #4BB3FD, #3E6680);">
+  <div class="container">
+    <h2 class="text-center mb-4 text-white">Why Choose Us?</h2>
+    <div class="row g-4 text-center text-white">
+      <div class="col-md-3 icon-box">
+        <i class="bi bi-truck" style="font-size: 2rem;"></i>
+        <h5>Fast Delivery</h5>
+        <p>Get your books delivered at lightning speed.</p>
+      </div>
+      <div class="col-md-3 icon-box">
+        <i class="bi bi-cash-coin" style="font-size: 2rem;"></i>
+        <h5>Best Prices</h5>
+        <p>Affordable prices with great discounts.</p>
+      </div>
+      <div class="col-md-3 icon-box">
+        <i class="bi bi-book" style="font-size: 2rem;"></i>
+        <h5>Wide Selection</h5>
+        <p>Thousands of books across every category.</p>
+      </div>
+      <div class="col-md-3 icon-box">
+        <i class="bi bi-shield-check" style="font-size: 2rem;"></i>
+        <h5>Secure Shopping</h5>
+        <p>Shop with confidence on our secure platform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

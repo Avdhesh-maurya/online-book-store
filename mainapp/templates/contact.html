@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">Contact Us</h2>
+    <hr>
+  </div>
+
+  <div class="row">
+    <!-- Left Column - Form -->
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <h4 class="fw-bold mb-3">Get In Touch</h4>
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-success py-2 px-3 d-flex align-items-center" role="alert">
+          <i class="fas fa-info-circle me-2"></i>
+          <span>{{ m }}</span>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          <!-- Name -->
+          <div class=" col-sm-12 mb-3">
+            <div><i class="fas fa-user text-success mb-2"></i>
+              <input type="text" name="name" class="form-control" placeholder="Name">
+            </div>
+          </div>
+          <div class=" col-sm-12 mb-3">
+            <div><i class="fas fa-envelope text-success mb-2"></i>
+              <input type="email" name="email" class="form-control" placeholder="Email address">
+            </div>
+          </div>
+          <div class=" col-sm-12 mb-3">
+            <div><i class="fas fa-phone text-success mb-2"></i>
+              <input type="tel" name="phone" class="form-control" placeholder="Phone number">
+            </div>
+          </div>
+          <div class=" col-sm-12 mb-3">
+            <div><i class="fas fa-question text-success mb-2"></i>
+              <input type="text" name="subject" class="form-control" placeholder="Subject">
+            </div>
+          </div>
+          <div class="col-sm-12 mb-3">
+            <label for="message" class="form-label"><i class="fas fa-comment text-success mb-1"></i></label>
+            <div class="input-group">
+              <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your message"></textarea>
+            </div>
+          </div>
+
+          <div class="col-sm-6"><button type="submit" class="btn btn-success w-100">Send massage</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Column -contact info -->
+    <div class="col-md-6 my-4 ">
+      <h3 class="fw-bold mb-5">contact information</h3>
+
+      <div class="container bg-body-tertiary rounded-2">
+        <div class="row gy-4">
+
+          <div class="col-12 d-flex align-items-start">
+            <i class="fas fa-map-marker-alt fa-lg text-success me-3 mt-1"></i>
+            <p class="mb-0">
+              60 Feet Road<br>
+              Gomtinagar Extension, Lucknow<br>
+              Uttar Pradesh, India
+            </p>
+          </div>
+
+          <div class="col-12 d-flex align-items-start">
+            <i class="fas fa-phone fa-lg text-success me-3 mt-1"></i>
+            <div>
+              <p class="mb-0">+91 7586785748</p>
+              <p class="mb-0">+91 7475937456</p>
+            </div>
+          </div>
+
+          <div class="col-12 d-flex align-items-start">
+            <i class="fas fa-envelope fa-lg text-success me-3 mt-1"></i>
+            <p class="mb-0">starterbob7318@gmail.com</p>
+          </div>
+
+          <div class="col-12 d-flex align-items-start mb-3">
+            <i class="fas fa-clock fa-lg text-success me-3 mt-1"></i>
+            <div>
+              <p class="mb-0">Monday - Friday: 9am to 6pm</p>
+              <p class="mb-0">Saturday: 10am to 4pm</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="col-sm-10">
+  <iframe width="100%"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6185.693497023905!2d81.02140701066635!3d26.87460468235263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be31d91dbbd2b%3A0xfcb60ea5524d84f7!2sSoftpro%20India%20Full%20Stack%20Academy!5e0!3m2!1sen!2sin!4v1755772968171!5m2!1sen!2sin"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+{% endblock %}
